@@ -40,5 +40,8 @@ pip3 install -r requirements.txt
 # Activate virtual environment if needed
 # source <venv>/bin/activate
 
-# Run Django collectstatic
+echo "Running collectstatic..."
 python3 manage.py collectstatic --no-input
+
+echo "Collectstatic completed. Contents of staticfiles directory:"
+ls -R staticfiles
