@@ -5,12 +5,12 @@
             "src": "saincube_portal/wsgi.py",
             "use": "@vercel/python",
             "config": {
-                "runtime": "python3.9",
-                "installCommand": "pip3 install -r requirements.txt"
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.9"
             }
         },
         {
-            "src": "build.sh",
+            "src": "build_files.sh",
             "use": "@vercel/static-build",
             "config": {
                 "distDir": "staticfiles"
@@ -19,13 +19,12 @@
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "saincube_portal/wsgi.py"
-        },
-        {
             "src": "/static/(.*)",
             "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "saincube_portal/wsgi.py"
         }
     ]
-  }
-  
+}
